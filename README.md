@@ -2,9 +2,9 @@
 
 This package provides a standardised approach for connecting to a MySQL database.
 
-## Import the package
+## Installation
 
-To import this package, navigate to the folder of your project in the command line then run:
+In the command line, navigate to the folder of your project then run:
 
 ```bash
 export GOPRIVATE=github.com/fzer0zer0
@@ -12,23 +12,24 @@ export GOPRIVATE=github.com/fzer0zer0
 
 This is to signal to the system that it should not validate the private package against the public Go checksum database otherwise it will return a 404 error.
 
-In your main package, add the following imports:
-
-```text
-"github.com/fzer0zer0/db-connector"
-"github.com/fzer0zer0/logger"
-```
-
 then run in the command line:
 
 ```bash
-go get github.com/fzer0zer0
+go get github.com/fzer0zer0/db-connector
 ```
 
-to use the connector, add the following variable to your project:
+## Usage
+
+In your main package, add the following import:
+
+```text
+"github.com/fzer0zer0/db-connector"
+```
+
+and then to use the connector, add the following variable to your project:
 
 ```go
-db, err := db-connector.NewConnection()
+db, err := connector.NewConnection()
 ```
 
 ## Managing environment variables
