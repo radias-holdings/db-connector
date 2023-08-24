@@ -12,6 +12,9 @@ var log = logger.NewLogger(nil)
 
 // New Connection opens a database connection to the MySQL DB specified in the environment variables
 func NewConnection() (db *sql.DB, err error) {
+	log.Debug("USER: ", os.Getenv("DB_USER"))
+	log.Debug("PASSWORD: ", os.Getenv("DB_PASSWORD"))
+	log.Debug("DB ADDRESS: ", os.Getenv("DB_ADDRESS"))
 
 	cfg := mysql.Config{
 		User:   os.Getenv("DB_USER"),
