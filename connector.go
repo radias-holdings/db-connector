@@ -12,16 +12,17 @@ var log = logger.NewLogger(nil)
 
 // New Connection opens a database connection to the MySQL DB specified in the environment variables
 func NewConnection() (db *sql.DB, err error) {
-	log.Debug("USER: ", os.Getenv("DB_USER"))
-	log.Debug("PASSWORD: ", os.Getenv("DB_PASSWORD"))
-	log.Debug("DB ADDRESS: ", os.Getenv("DB_ADDRESS"))
+	// log.Debug("USER: ", os.Getenv("DB_USER"))
+	// log.Debug("PASSWORD: ", os.Getenv("DB_PASSWORD"))
+	// log.Debug("DB ADDRESS: ", os.Getenv("DB_ADDRESS"))
 
 	cfg := mysql.Config{
-		User:   os.Getenv("DB_USER"),
-		Passwd: os.Getenv("DB_PASSWORD"),
-		Net:    "tcp",
-		Addr:   os.Getenv("DB_ADDRESS"),
-		DBName: os.Getenv("DB_NAME"),
+		User:                 os.Getenv("DB_USER"),
+		Passwd:               os.Getenv("DB_PASSWORD"),
+		Net:                  "tcp",
+		Addr:                 os.Getenv("DB_ADDRESS"),
+		DBName:               os.Getenv("DB_NAME"),
+		AllowNativePasswords: true,
 	}
 
 	db, err = sql.Open("mysql", cfg.FormatDSN())
