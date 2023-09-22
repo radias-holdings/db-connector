@@ -34,22 +34,12 @@ db, err := connector.NewConnection()
 
 ## Managing environment variables
 
-This package makes use of the [GoDotEnv library](https://github.com/joho/godotenv).
-
-Your project will need a `.env` file with values for:
+Ensure your env supports the env vars below:
 
 ```text
 DB_USER=<MySQL DB username>
 DB_NAME=<MySQL DB name>
 DB_ADDRESS=<address of MYSQL DB> (127.0.0.1:3306 for localhost)
-```
-
- as well as a `.env.test` file (added to `.gitignore`) that holds:
-
-- DB_USER
-- DB_NAME
-- DB_PASSWORD (be careful to not commit sensitive information)
-- DB_ADDRESS (`127.0.0.1:3306` for localhost)
 
 Set the DB_PASSWORD for your local environment
 
@@ -58,26 +48,6 @@ export DB_PASSWORD=<insert MySQL DB password>
 ```
 
 add the following import to your main package:
-
-```text
-"github.com/joho/godotenv"
-```
-
-then run in the command line:
-
-```bash
-go get github.com/joho/godotenv
-```
-
-Add the following init function above your main function in your main package, this will use the variables in the `.env` file and the DB_PASSWORD set above:
-
-```go
-func init() {
- if err := godotenv.Load(); err != nil {
-  log.Error("No .env file found", "rsp", err)
- }
-}
-```
 
 ## Running tests in this package
 

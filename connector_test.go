@@ -4,16 +4,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/joho/godotenv"
 	c "github.com/smartystreets/goconvey/convey"
 )
 
 func TestNewConnection(t *testing.T) {
-	err := godotenv.Load(".env.test")
-	if err != nil {
-		log.Error("No .env.test file found", "rsp", err)
-	}
-
 	db, err := NewConnection()
 	if err != nil {
 		log.Error("No DB connection", "rsp", err)
