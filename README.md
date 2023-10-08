@@ -26,28 +26,11 @@ In your main package, add the following import:
 "github.com/fzer0zer0/db-connector"
 ```
 
-and then to use the connector, add the following variable to your project:
+and then to use the connector:
 
 ```go
-db, err := connector.NewConnection()
+db, err := connector.NewConnection(user, password, address, dbname)
 ```
-
-## Managing environment variables
-
-Ensure your env supports the env vars below:
-
-```text
-DB_USER=<MySQL DB username>
-DB_NAME=<MySQL DB name>
-DB_ADDRESS=<address of MYSQL DB> (127.0.0.1:3306 for localhost)
-
-Set the DB_PASSWORD for your local environment
-
-```bash
-export DB_PASSWORD=<insert MySQL DB password>
-```
-
-add the following import to your main package:
 
 ## Running tests in this package
 
