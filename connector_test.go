@@ -1,14 +1,13 @@
 package connector
 
 import (
-	"os"
 	"testing"
 
 	c "github.com/smartystreets/goconvey/convey"
 )
 
 func TestNewConnection(t *testing.T) {
-	db, err := NewConnection()
+	db, err := NewConnection("local", "password", "localhost:3306", "test")
 	if err != nil {
 		log.Error("No DB connection", "rsp", err)
 	}
@@ -17,11 +16,6 @@ func TestNewConnection(t *testing.T) {
 	c.Convey(".env.test environment variables", t, func() {
 		c.Convey("should load without error", func() {
 			c.So(err, c.ShouldBeNil)
-		})
-		c.Convey("should be set correctly", func() {
-			// Requires a DB username of "local", change this if required
-			c.So(os.Getenv("DB_USER"), c.ShouldEqual, "local")
-			c.So(os.Getenv("DB_PASSWORD"), c.ShouldNotBeEmpty)
 		})
 	})
 	c.Convey("Calling NewConnection", t, func() {
