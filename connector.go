@@ -3,8 +3,8 @@ package connector
 import (
 	"database/sql"
 
-	"github.com/fzer0zer0/logger"
 	"github.com/go-sql-driver/mysql"
+	"github.com/radias-holdings/logger"
 )
 
 var log = logger.NewLogger(nil)
