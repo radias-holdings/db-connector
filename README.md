@@ -7,7 +7,7 @@ This package provides a standardised approach for connecting to a MySQL database
 In the command line, navigate to the folder of your project then run:
 
 ```bash
-export GOPRIVATE=github.com/fzer0zer0
+export GOPRIVATE=github.com/radius-holdings
 ```
 
 This is to signal to the system that it should not validate the private package against the public Go checksum database otherwise it will return a 404 error.
@@ -15,7 +15,7 @@ This is to signal to the system that it should not validate the private package 
 then run in the command line:
 
 ```bash
-go get github.com/fzer0zer0/db-connector
+go get github.com/radius-holdings/db-connector
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ go get github.com/fzer0zer0/db-connector
 In your main package, add the following import:
 
 ```text
-"github.com/fzer0zer0/db-connector"
+"github.com/radius-holdings/db-connector"
 ```
 
 and then to use the connector:
